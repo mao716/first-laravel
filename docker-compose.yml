@@ -1,6 +1,7 @@
 services:
     nginx:
         image: nginx:1.21.1
+        platform: linux/amd64  
         ports:
             - "80:80"
         volumes:
@@ -16,10 +17,10 @@ services:
         platform: linux/amd64
         volumes:
             - ./src:/var/www/
-        user: "${MY_UID:-501}:${MY_GID:-20}"
+        user: "${MY_UID}:${MY_GID}"
         environment:
-          - MY_UID=${MY_UID:-501}
-          - MY_GID=${MY_GID:-20}
+          - MY_UID=${MY_UID}
+          - MY_GID=${MY_GID}
 
     mysql:
         image: mysql:8.0
