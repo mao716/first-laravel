@@ -16,6 +16,7 @@ use App\Http\Controllers\MiddlewareController;
 */
 
 Route::get('/', [TestController::class, 'index']);
+Route::post('/', [TestController::class, 'post']);
 
 Route::get('/middleware', [MiddlewareController::class, 'index']);
-Route::post('/middleware', [MiddlewareController::class, 'post'])->middleware('first');
+Route::post('/middleware', [MiddlewareController::class, 'post']);
